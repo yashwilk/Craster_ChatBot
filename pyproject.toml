@@ -52,6 +52,9 @@ line-length = 119
 select = ["E", "F", "B"]
 ignore = ["E501"]
 
+[tool.ruff.lint.flake8-bugbear]
+extend-immutable-calls = ["fastapi.Depends", "fastapi.Query"]
+
 [tool.pyright]
 include = ["app", "evals"]
 pythonVersion = "3.13"
