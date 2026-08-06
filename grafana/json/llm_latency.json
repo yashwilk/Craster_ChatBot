@@ -1,0 +1,27 @@
+{
+  "title": "LLM & Acumatica Tool Latency",
+  "panels": [
+    {
+      "type": "graph",
+      "title": "LLM Inference Duration (s)",
+      "targets": [{"expr": "rate(llm_inference_duration_seconds_sum[5m]) / rate(llm_inference_duration_seconds_count[5m])"}]
+    },
+    {
+      "type": "graph",
+      "title": "Acumatica Tool Call Duration (s) by tool",
+      "targets": [{"expr": "rate(acumatica_tool_duration_seconds_sum[5m]) / rate(acumatica_tool_duration_seconds_count[5m])"}]
+    },
+    {
+      "type": "graph",
+      "title": "Acumatica Tool Calls by status",
+      "targets": [{"expr": "sum(rate(acumatica_tool_calls_total[5m])) by (tool, status)"}]
+    },
+    {
+      "type": "graph",
+      "title": "HTTP Request Duration (s)",
+      "targets": [{"expr": "rate(http_request_duration_seconds_sum[5m]) / rate(http_request_duration_seconds_count[5m])"}]
+    }
+  ],
+  "schemaVersion": 36,
+  "version": 1
+}
