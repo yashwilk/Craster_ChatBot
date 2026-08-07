@@ -1,8 +1,5 @@
-"""Model exports used by Alembic and import-time discovery."""
+"""Model re-exports for Alembic autogenerate discovery."""
 
-from app.models.base import BaseModel
-from app.models.session import Session
 from app.models.thread import Thread
-from app.models.user import User
 
-__all__ = ["BaseModel", "Session", "Thread", "User"]
+__all__ = ["Thread"]

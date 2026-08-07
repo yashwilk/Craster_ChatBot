@@ -1,7 +1,5 @@
 """User model."""
 
-from __future__ import annotations
-
 from typing import TYPE_CHECKING, List, Optional
 
 import bcrypt
@@ -16,7 +14,7 @@ if TYPE_CHECKING:
 class User(BaseModel, table=True):
     """A registered user account."""
 
-    id: int | None = Field(default=None, primary_key=True)
+    id: int = Field(default=None, primary_key=True)
     email: str = Field(unique=True, index=True)
     hashed_password: str
     username: Optional[str] = Field(default=None)
@@ -30,3 +28,6 @@ class User(BaseModel, table=True):
     def hash_password(password: str) -> str:
         """Hash a plaintext password with bcrypt."""
         return bcrypt.hashpw(password.encode("utf-8"), bcrypt.gensalt()).decode("utf-8")
+
+
+from app.models.session import Session  # noqa: E402

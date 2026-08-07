@@ -1,7 +1,6 @@
 """Base model with common fields."""
 
-from datetime import UTC, datetime
-
+from datetime import datetime, UTC
 from sqlmodel import Field, SQLModel
 
 
